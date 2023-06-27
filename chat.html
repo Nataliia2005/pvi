@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="manifest" href="manifest.json" />
+    <title>Students</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title">CMS</h1>
+        <span class="header-left">
+            <button class="notification">
+                <div class="bell-icon">
+                    <div class="new"></div>
+                    <i class="fa fa-bell-o bell" style="font-size:26px"></i>
+                </div>
+                <div class="notification-panel">
+                    <ul>
+                        <li>No notifications</li>
+                    </ul>
+                </div>
+            </button>
+            <div class="user-container">
+                <div class="user">
+                    <img class="user__img" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="User" />
+                    <p class="user__name">Наталія Коханюк</p>
+                </div>
+                <div class="user-panel">
+                    <ul>
+                        <li>
+                            <button>Profile</button>
+                        </li>
+                        <li>
+                            <button>Sign out</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </span>
+    </header>
+    <div class="main">
+        <nav class="nav">
+            <ul>
+                <li><a href="Lab1.html">Students</a></li>
+                <li><a href="#">Chat room</a></li>
+                <li><button class="students__btn btn-add" id="add-chat-btn">Chat</button></li>
+                <li><button class="students__btn btn-add" id="add-chat-btn">Room</button></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="window">
+        <iframe width="900" src="http://localhost:3000/" height="600" frameborder="0" allow="picture-in-picture"></iframe>
+    </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('sw.js')
+                    .then(registration => {
+                        console.log('Сервисный работник зарегистрирован:', registration);
+                    })
+                    .catch(error => {
+                        console.log('Ошибка при регистрации сервисного работника:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
